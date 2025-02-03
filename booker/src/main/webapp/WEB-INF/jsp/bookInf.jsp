@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+   
+    
 <!DOCTYPE html>
 
 <html>
@@ -9,7 +12,7 @@
 		<title>BOOKer</title>
 		<link rel = "stylesheet" href="./css/topVew.css">
 	</head>
-
+	
 	<body>
 		<jsp:include page="header.jsp" ></jsp:include>
 		
@@ -39,6 +42,7 @@
 			    </div>
 			</c:forEach>
 		
+		
 		<%-- 感想の投稿フォーム --%>
 			<form action="BookInf" method="post">
 			    <input type="hidden" name="bookId" value="${book.id}"> <!-- 書籍IDを隠しフィールドで送信 -->
@@ -47,17 +51,14 @@
 			    
 			    <input type="submit" value="投稿">
 			</form>
-			
+		
+		
+		
 		<br>
 		<a href="welcomeServlet">トップへ</a>
 		<br>
 		<p><a href="BookInf?bookId=${book.id}">更新</a></p> <!-- 感想投稿ページへのリンク -->
 		
-		<!-- トップへ戻るボタン -->
-    	<button id="topButton">↑</button>
-    	<!-- 外部JavaScriptを読み込む -->
-		<script src="WEB-INF/jsp/JavaScript.js"></script>
-			
 	</body>
-	
+
 </html>
