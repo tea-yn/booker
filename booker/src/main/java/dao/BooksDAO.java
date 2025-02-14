@@ -81,11 +81,12 @@ public class BooksDAO {
 						int id = rs.getInt("id");
 						String title = rs.getString("title");
 						String writer = rs.getString("writer");
+						String isbn = rs.getString("isbn");
 						
 						// デバッグ用ログ
 				        //System.out.println("取得したデータ: " + title + ", " + writer);
 				        
-						Book book = new Book(id,title, writer);
+						Book book = new Book(id,title, writer, isbn);
 						bookList.add(book);
 					}
 					System.out.println("データ取得終了。取得件数: " + bookList.size());
@@ -111,7 +112,8 @@ public class BooksDAO {
 	            int id = rs.getInt("id");
 	            String title = rs.getString("title");
 	            String writer = rs.getString("writer");
-	            book = new Book(id, title, writer);
+	            String isbn = rs.getString("isbn");
+	            book = new Book(id, title, writer, isbn);
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
@@ -120,7 +122,6 @@ public class BooksDAO {
 	    }
 	    return book;
 	}
-	
 	
 	
 	//書籍情報を追加するメソッド
