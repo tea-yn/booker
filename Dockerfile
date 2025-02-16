@@ -8,12 +8,13 @@ WORKDIR /app
 COPY . .
 
 # Maven を使ってビルド（テストはスキップ）
-RUN mvn clean package -DskipTests
+RUN mvn -f pom.xml clean package -DskipTests
+
 
 # 2. 実行ステージ
 FROM eclipse-temurin:22-alpine
 WORKDIR /app
-COPY --from=build /app/target/booker-0.0.1-SNAPSHOT.jar /app/booker.jar
+COPY --from=build /app/target/booker.jar /app/booker.jar
 RUN chmod +x /app/booker.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "/app/booker.jar"]
