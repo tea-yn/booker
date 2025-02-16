@@ -1,22 +1,30 @@
-# ビルド環境
+# 1. ビルドステージ
 FROM maven:3-eclipse-temurin-22 AS build
 
+# 作業ディレクトリを /app に設定
 WORKDIR /app
 
-# プロジェクト全体をコピー（pom.xml だけでなく、ソースコード全体を含む）
+# プロジェクトのソースコードをコピー
 COPY . .
 
-# JAR を作成（テストをスキップ）
-RUN mvn clean package -Dmaven.test.skip=true
+# Maven を使ってビルド（テストはスキップ）
+RUN mvn clean package -DskipTests
 
-# 実行環境
+# 2. 実行ステージ
 FROM eclipse-temurin:22-alpine
 
-# JAR を正しいパスからコピー
-COPY --from=build /app/target/*.jar /app/booker.jar
+# 作業ディレクトリを /app に設定
+WORKDIR /app
 
-# ポートを公開
+# ビルドした JAR をコピー（finalName を指定している場合は `booker.jar` になる）
+COPY --from=build /app/target/booker.jar /app/booker.jar
+
+# JAR の実行権限を付与
+RUN chmod +x /app/booker.jar
+
+# コンテナがリッスンするポートを指定
 EXPOSE 8080
 
-# アプリケーションを起動
+# アプリを実行
 ENTRYPOINT ["java", "-jar", "/app/booker.jar"]
+
