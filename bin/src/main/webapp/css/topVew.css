@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+body{
+	background-color: ghostwhite;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: seagreen;
+	
+	font-family: 'BIZ UDGothic';
+	
+	font-size: 125%; 
+}
+
+li{
+    width:25%;
+    text-align:center;
+    transition: 0.3s;
+    list-style: none;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.english{
+		font-family: 'Arial Black';
+	}
+	
+.title{
+	font-size: 125%;
+	color: forestgreen;
+}
+
+.non {
+    position: absolute; /* 絶対位置を指定 */
+    /*top: 50%;  親要素の中央に配置 */
+    left: 0; /* 左端に配置 */
+    width: 100%; /* 親要素の幅に合わせる */
+    height: 1px; /* 線の太さを指定 */
+    background-color: red; /* 線の色を赤に指定 */
+    transform: translateY(-50%); /* 中央揃えを調整 */
+}
+	
+h1{
+	border-bottom: 5px solid seagreen;
+	background-image: url("image/031ELLY18420_TP_V.jpg");
+	}
+	
