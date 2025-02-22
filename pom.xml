@@ -7,7 +7,10 @@
     <artifactId>booker</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -18,19 +21,13 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.46</version>
-        </dependency>
+            <version>8.0.33</version> </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
     </dependencies>
-    
-    <welcome-file-list>
-    	<welcome-file>/welcomeServlet</welcome-file>
-	</welcome-file-list>
-
     <build>
         <finalName>booker</finalName>
     </build>
