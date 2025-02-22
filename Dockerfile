@@ -1,20 +1,10 @@
 # 1. ビルドステージ
-FROM maven:3-eclipse-temurin-22 AS build
-
-# 作業ディレクトリを /app に設定
-WORKDIR /app
+FROM tomcat:9.0-jdk17
 
 # プロジェクトのソースコードをコピー
-COPY . .
-
-# Maven を使ってビルド（テストはスキップ）
-RUN mvn -f pom.xml clean package -DskipTests
+COPY target/booker.war /usr/local/tomcat/webapps/booker.war
 
 
-# 2. 実行ステージ
-FROM eclipse-temurin:22-alpine
-WORKDIR /app
-COPY --from=build /app/target/booker.jar /app/booker.jar
-RUN chmod +x /app/booker.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app/booker.jar"]
+# Tomcatの起動
+CMD ["catalina.sh", "run"]
+
