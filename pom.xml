@@ -26,6 +26,10 @@
             <version>1.2</version>
         </dependency>
     </dependencies>
+    
+    <welcome-file-list>
+    	<welcome-file>/welcomeServlet</welcome-file>
+	</welcome-file-list>
 
     <build>
         <finalName>booker</finalName>
