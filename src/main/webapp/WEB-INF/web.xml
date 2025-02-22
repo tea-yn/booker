@@ -9,14 +9,15 @@
         <welcome-file>/welcomeServlet</welcome-file>
     </welcome-file-list>
     
-    <servlet>
-    <servlet-name>welcomeServlet</servlet-name>
-    <servlet-class>com.example.WelcomeServlet</servlet-class>
-</servlet>
+ <servlet>
+        <servlet-name>welcomeServlet</servlet-name>
+        <servlet-class>com.example.welcomeServlet</servlet-class>
+    </servlet>
 
-<servlet-mapping>
-    <servlet-name>welcomeServlet</servlet-name>
-    <url-pattern>/welcome</url-pattern>
-</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>welcomeServlet</servlet-name>
+        <url-pattern>/welcome</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
