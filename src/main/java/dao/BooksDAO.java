@@ -14,9 +14,9 @@ import model.Impression;
 //Bookinfテーブルを担当するDAO。全レコードの取得とレコード追加のメソッドを持つ
 public class BooksDAO {
 	//データベース接続に使用する情報
-	private final String JDBC_URL = "jdbc:mysql://localhost/booker?useUnicode=true&characterEncoding=utf8";
-	private final String DB_USER = "root";
-	private final String DB_PASS = "root";
+	private final String JDBC_URL = "jdbc:postgresql://localhost:5432/booker?useUnicode=true&characterEncoding=utf8";
+	private final String DB_USER = "postgres";
+	private final String DB_PASS = "uyumajikana4414";
 
 	 public boolean insertImpression(Impression impression) {
 	        // SQL文を準備
@@ -61,7 +61,7 @@ public class BooksDAO {
 		List<Book> bookList = new ArrayList<>();
 		//JDBCドライバを読み込む
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("org.postgresql.Driver");
 		}catch(ClassNotFoundException e) {
 			throw new IllegalStateException("JDBCドライバを読み込めませんでした");
 		}
@@ -128,7 +128,7 @@ public class BooksDAO {
 		//JDBCドライバを読み込む
 				try {
 					//Class.forName("com.mysql.jdbc.Driver");
-					Class.forName("com.mysql.cj.jdbc.Driver");
+					Class.forName("org.postgresql.Driver");
 
 				}catch(ClassNotFoundException e) {
 					throw new IllegalStateException("JDBCドライバを読み込めませんでした");

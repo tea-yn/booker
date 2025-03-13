@@ -15,10 +15,10 @@ import model.Impression;
 public class ImpressionDAO {
 	//データベース接続に使用する情報
 	private final String JDBC_URL =
-		"jdbc:mysql://localhost/booker"
+		"jdbc:postgresql://localhost:5432/booker"
 			+ "?useUnicode=true&characterEncoding=utf8";
-	private final String DB_USER = "root";
-	private final String DB_PASS = "root";
+	private final String DB_USER = "postgres";
+	private final String DB_PASS = "uyumajikana4414";
 
 
 	//感想リストを取得するメソッド
@@ -26,7 +26,7 @@ public class ImpressionDAO {
         List<Impression> impList = new ArrayList<>();
         
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
             throw new IllegalStateException("JDBCドライバを読み込めませんでした");
         }
@@ -76,7 +76,7 @@ public class ImpressionDAO {
 	public boolean creatText(Impression impression) {
 	//JDBCドライバを読み込む
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("org.postgresql.Driver");
 		}catch(ClassNotFoundException e) {
 			throw new IllegalStateException("JDBCドライバを読み込めませんでした");
 						}

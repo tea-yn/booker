@@ -13,17 +13,17 @@ import model.Login;
 public class AccountsDAO {
 		//データベース接続に使用する情報
 		private final String JDBC_URL =
-				"jdbc:mysql://localhost/booker"
+				"jdbc:postgresql://localhost:5432/booker"
 				+ "?useUnicode=true&characterEncoding=utf8";
-		private final String DB_USER = "root";
-		private final String DB_PASS = "root";
+		private final String DB_USER = "postgres";
+		private final String DB_PASS = "uyumajikana4414";
 		
 		//ログイン情報を取得するメソッド
 		public Account FindByLogin(Login login){
 			Account account = null;
 			//JDBCドライバを読み込む
 			try {
-				Class.forName("com.mysql.jdbc.Driver");
+				Class.forName("org.postgresql.Driver");
 			}catch(ClassNotFoundException e) {
 				throw new IllegalStateException("JDBCドライバを読み込めませんでした");
 			}
@@ -66,7 +66,7 @@ public class AccountsDAO {
 		public boolean createAccount(Account account) {
 			//JDBCドライバを読み込む
 			try {
-				Class.forName("com.mysql.jdbc.Driver");
+				Class.forName("org.postgresql.Driver");
 			}catch(ClassNotFoundException e) {
 				throw new IllegalStateException("JDBCドライバを読み込めませんでした");
 			}
@@ -98,7 +98,7 @@ public class AccountsDAO {
 		public boolean isUserIdExists(String userId) {
 			//JDBCドライバを読み込む
 			try {
-				Class.forName("com.mysql.jdbc.Driver");
+				Class.forName("org.postgresql.Driver");
 			}catch(ClassNotFoundException e) {
 				throw new IllegalStateException("JDBCドライバを読み込めませんでした");
 			}
