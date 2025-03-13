@@ -31,5 +31,12 @@
     </dependencies>
     <build>
         <finalName>booker</finalName>
+        <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.3.0</version> <!-- 最新の安定バージョンに変更 -->
+        </plugin>
+    </plugins>
     </build>
 </project>
