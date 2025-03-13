@@ -1,20 +1,21 @@
-# 1. ビルドステージ
-FROM maven:3.8.4-openjdk-17 as build
+# 1. ビルドステージ - Mavenをインストール
+FROM maven:3.8.4-openjdk-17-slim as build
 
 # プロジェクトのソースコードをコピー
-COPY . /app
+COPY . /usr/src/app
 
 # 作業ディレクトリを設定
-WORKDIR /app
+WORKDIR /usr/src/app
 
-# Mavenでビルド（依存関係をダウンロードし、WARファイルを生成）
+# Mavenビルドを実行（依存関係のダウンロード、プロジェクトのビルド）
 RUN mvn clean install
 
-# 2. 実行ステージ（Tomcatを使用してWARファイルをデプロイ）
+# 2. 実行ステージ - Tomcatを使用
 FROM tomcat:9.0-jdk17
 
-# ビルドステージで作成されたWARファイルをコピー
-COPY --from=build /app/target/booker.war /usr/local/tomcat/webapps/booker.war
+# ビルド済みWARファイルをコピー
+COPY --from=build /usr/src/app/target/booker.war /usr/local/tomcat/webapps/booker.war
 
 # Tomcatの起動
 CMD ["catalina.sh", "run"]
+
