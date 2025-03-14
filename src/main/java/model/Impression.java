@@ -21,6 +21,11 @@ public class Impression {
 		this.book_id = bookId;
 	}
 	
+	public Impression(int bookId, String userId,  String imp_text) {
+		this.imp_text = imp_text;
+		this.book_id = bookId;
+		this.user_id = userId;
+	}
 	
 	
 
@@ -43,6 +48,10 @@ public class Impression {
 	
 	public String getUserId() {
 		return user_id;
+	}
+	
+	public void setUserId(String user_Id) {
+		this.user_id = user_Id;
 	}
 	
 	public void setBookId(int book_id) {

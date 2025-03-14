@@ -44,9 +44,10 @@ public class ImpressionDAO {
             //Impressionインスタンスに設定し、ArrayListインスタンスに追加
             while (rs.next()) {
             	 int id = rs.getInt("id");					//Impressionテーブルの識別用ID
-                 String text = rs.getString("text");		//感想
-                 String userId = rs.getString("user_id");	//ユーザーのID（char型）
+                 String text = rs.getString("imp_text");		//感想
                  int bId = rs.getInt("book_id");
+                 String userId = rs.getString("user_id");	//ユーザーのID（char型）
+                 
              
                  System.out.println("取得したデータ: " + id + ", " + text);
                  

@@ -46,6 +46,8 @@ public class LoginServlet extends HttpServlet {
 			//セッションスコープにユーザーIDを保存
 			HttpSession session = request.getSession();
 			session.setAttribute("hn", hn);
+			session.setAttribute("userId",userId);
+			System.out.println("[LoginServlet]userId: " + userId);
 			session.setAttribute("loginResult", true); // loggedInUserはログインユーザー情報
 			//System.out.println("loginResult: " + loginResult);
 			

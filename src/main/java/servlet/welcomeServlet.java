@@ -19,4 +19,3 @@ public class welcomeServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 }
-//pass: uyumajikana4414 (postgreSQL)

@@ -73,6 +73,7 @@ public class BookInf extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String text = request.getParameter("imp");
 		String bookIdStr = request.getParameter("bookId");
+		//String userId = request.getParameter("userId");
 		
 		// 2. 書籍IDをintに変換
         int bookId = Integer.parseInt(bookIdStr);
@@ -88,9 +89,13 @@ public class BookInf extends HttpServlet {
 			    
 			    // 感想オブジェクトを作成してセッションに保存
 			    HttpSession session = request.getSession();
-			    Impression imp = new Impression(bookId, text);
+			    String userId = (String) session.getAttribute("userId");
+			    
+			    Impression imp = new Impression(bookId, userId, text);
 			    imp.setBookId(bookId);
 			    imp.setImpression(text);
+			    imp.setUserId(userId);
+			    System.out.println("【BookinfServlet】userIdをセット：" + userId);
 			    session.setAttribute("imp", imp);
 			    /*
 			    System.out.println("doPostのログ");
