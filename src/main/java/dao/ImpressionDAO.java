@@ -34,7 +34,7 @@ public class ImpressionDAO {
         //データベースに接続
         try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
             //SELECT文を準備
-        	String sql = "SELECT * FROM impressions WHERE book_id = ?";
+        	String sql = "SELECT * FROM impression WHERE book_id = ?";
             PreparedStatement pStmt = conn.prepareStatement(sql);
             pStmt.setInt(1, bookId);
             //SELECTを実行し、結果表を取得

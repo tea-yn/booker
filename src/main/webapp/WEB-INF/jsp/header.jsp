@@ -17,7 +17,7 @@
 		<!-- ログイン状態に応じて表示を切り替える -->
         <h2><% Boolean loginResult2 = false;
         loginResult2 = (Boolean)session.getAttribute("loginResult");
-        System.out.println("loginResult2: " + loginResult2);
+        //System.out.println("loginResult2: " + loginResult2);
         if (Boolean.TRUE.equals(loginResult2)) {
         // ログイン成功の処理 %>
             <p>ログイン中 <a href="LogoutServlet">ログアウト</a></p>

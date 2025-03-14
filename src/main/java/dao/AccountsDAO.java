@@ -48,7 +48,7 @@ public class AccountsDAO {
 					if( hn == null) {
 						account = new Account(userId, pass);
 						
-						System.out.println("account OK");
+						//System.out.println("account OK");
 					}else if( hn != null){
 						account = new Account(userId, pass, hn);
 					}

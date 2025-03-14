@@ -20,7 +20,7 @@
 			<li><a href="RegisterServlet">ユーザー登録</a></li>
 			<li><% Boolean loginResult2 = false;
 			      	loginResult2 = (Boolean)session.getAttribute("loginResult");
-			      	System.out.println("loginResult2: " + loginResult2);
+			      	//System.out.println("loginResult2: " + loginResult2);
 			      	if (Boolean.TRUE.equals(loginResult2)) {
 			      	// ログイン中の場合は書籍一覧表示あり %>
 			     <a href="BookImpressionServlet">書籍一覧</a>

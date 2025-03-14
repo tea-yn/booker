@@ -9,38 +9,19 @@ public class Impression {
 	private String hn;
 
 	//コンストラクタ
-	/*public Impression(String imp, int book_id) {
-		this.imp = imp;
-		this.book_id = book_id;
-	}*/
 	public Impression(int id,String imp_text,String userId, int bookId) {
 		this.id = id;
 		this.imp_text = imp_text;
 		this.book_id = bookId;
 		this.user_id = userId;
 	}
-	/*
-	public Impression(String imp_text,String userId, int bookId) {
-		this.imp_text = imp_text;
-		this.book_id = bookId;
-		this.user_id = userId;
-	}
-	
-	public Impression() {
-		
-	}
-	
-	public Impression(String imp_text,String userId, int bookId,String hn) {
-		this.imp_text = imp_text;
-		this.book_id = bookId;
-		this.user_id = userId;
-		this.hn = hn;
-		}*/
 	
 	public Impression(int bookId, String imp_text) {
-		this.book_id = bookId;
 		this.imp_text = imp_text;
+		this.book_id = bookId;
 	}
+	
+	
 	
 
 	//getter*setter
