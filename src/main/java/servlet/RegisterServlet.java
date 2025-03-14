@@ -24,14 +24,13 @@ public class RegisterServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doPOSTメソッドを実行");
 		//リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
 		
 		//フォームから送信されたユーザー名とパスワードを取得
 		String userId = request.getParameter("userId");
 		String pass = request.getParameter("pass");
-		System.out.println("フォームから送信された  userID: " + userId + " / pass: " + pass);
+		//System.out.println("フォームから送信された  userID: " + userId + " / pass: " + pass);
 		
 		//空欄がないか確認
 		if( userId == null || userId.isEmpty() || pass == null || pass.isEmpty()) {

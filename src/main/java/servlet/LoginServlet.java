@@ -27,7 +27,6 @@ public class LoginServlet extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		System.out.println("doPOSTを実行");
 		
 		//リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
@@ -40,7 +39,7 @@ public class LoginServlet extends HttpServlet {
 		LoginLogic bo = new LoginLogic();
 		boolean loginResult = false; 
 		loginResult = bo.execute(login);
-		System.out.println("loginResult(doPOST): " + loginResult);
+		//System.out.println("loginResult(doPOST): " + loginResult);
 		
 		//ログイン処理の成否によって処理を分岐
 		if(loginResult == true) {	//ログイン成功時

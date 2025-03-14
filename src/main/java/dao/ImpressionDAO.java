@@ -71,7 +71,7 @@ public class ImpressionDAO {
         return impList;
     }
 		
-	
+	/*
 	//感想を追加するメソッド（creatText)
 	public boolean creatText(Impression impression) {
 	//JDBCドライバを読み込む
@@ -102,21 +102,28 @@ public class ImpressionDAO {
 				return false;
 		}
 		return true;
-	}
+	}*/
 	
 	
 	public boolean insertImpression(Impression impression) {
+		System.out.println("感想の追加を実行");
 		// SQL文の準備
-		String sql = "INSERT INTO impressions (book_id, user_id, text) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO impression (imp_text, book_id, user_id) VALUES (?, ?, ?)";
 		
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 		PreparedStatement pstmt = conn.prepareStatement(sql)) {         
 			// パラメータを設定
-			pstmt.setInt(1, impression.getBookId());
-			pstmt.setString(2, impression.getUserId());
-			pstmt.setString(3, impression.getImpression());          
+			pstmt.setString(1, impression.getImpression());
+			pstmt.setInt(2, impression.getBookId());
+			pstmt.setString(3, impression.getUserId());  
+			
+			System.out.println("感想: " + impression.getImpression());
+			System.out.println("書籍ID: " + impression.getBookId());
+			System.out.println("ユーザーID: " + impression.getUserId());
+			
 			// SQL実行
 			int result = pstmt.executeUpdate();
+			System.out.println("感想追加成功");
 			return result > 0; // 登録成功ならtrueを返す
 		} catch (SQLException e) {
 			e.printStackTrace(); // エラーログを出力

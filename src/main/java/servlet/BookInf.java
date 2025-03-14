@@ -92,12 +92,12 @@ public class BookInf extends HttpServlet {
 			    imp.setBookId(bookId);
 			    imp.setImpression(text);
 			    session.setAttribute("imp", imp);
-
+			    /*
 			    System.out.println("doPostのログ");
 			    System.out.println("UserHN: " + imp.getHn());
 			    System.out.println("bookId: " + imp.getBookId());
 			    System.out.println("Text: " + imp.getImpression());
-			    
+			    */
 			    
 			    //感想をデータベースに保存
 			    PostTextLogic postTextLogic = new PostTextLogic();
