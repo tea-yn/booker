@@ -14,9 +14,11 @@ import model.Impression;
 //Bookinfテーブルを担当するDAO。全レコードの取得とレコード追加のメソッドを持つ
 public class BooksDAO {
 	//データベース接続に使用する情報
-	private final String JDBC_URL = "jdbc:postgresql://localhost:5432/booker?useUnicode=true&characterEncoding=utf8";
-	private final String DB_USER = "postgres";
-	private final String DB_PASS = "uyumajikana4414";
+	private final String JDBC_URL =
+			"jdbc:postgresql://dpg-cuu12hq3esus73ee1rfg-a:5432/booker_db_6r9g"
+				+ "?useUnicode=true&characterEncoding=utf8";
+		private final String DB_USER = "booker_db_6r9g_user";
+		private final String DB_PASS = "6EHpjAXWJsi3ahgcJQmezW2BPVM8JoA0";
 
 	 public boolean insertImpression(Impression impression) {
 	        // SQL文を準備
